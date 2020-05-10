@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Notes</title>
+</head>
+<body>
+    <h1> Week 3 Notes</h1>
+    <h3>Object Literals</h3>
+<p> In javascript it's a self contained set of related values and functions. If property value is a function then it's known as a method.</p>
+<p> Think of it like a dictionary where you look up a property name and see a value.</p>
+    <ul> 
+        <li> They are flexible, they encapsulate code to be reused throughout a program.</li>
+        <li> Wrap an object in { } </li>
+        <li>Naming follows variables.  ex. not "real name" not "real_name" yes "realName" </li>
+        <li> Properties & Methods can be changed or moved.</li>
+    </ul>
+    <h3><strong>this</strong></h3>
+    <p> example: const dice = { 
+        sides: 6, 
+        roll(){ 
+            return Math.floor(this.sides*Math.random())+1; 
+        }
+    }
+</p>
+<h3> Math Objects</h3>
+<ul> 
+    <li>Math.PI</li>
+    <li>Math.SQRT2</li>
+    <li>Math.SQRT1_2</li>
+    <li>Math.E</li>
+    <li>Math.LN2</li>
+    <li>Math.LN10</li>
+    <li>Math.Log2E</li>
+    <li>Math.Log10E</li>
+</ul>
+<p> These are built in constants.</p>
+
+<h3> Several Math Methods </h3>
+<h4>Some examples: </h4>
+<ul> 
+    <li> Math.abs() = Absolute value of a number. </li>
+    <li>Math.ceil() = Rounding up. </li>
+    <li>Math.floor() = Rounding down. </li>
+    <li>Math.round() = Round to the nearest integer. </li>
+    <li>Math.pow()   = Will raise any # to the power of another #. </li>
+    <li>Math.sqrt() =  Positive square root of a #. </li>
+</ul>
+<p> ..... and LOTS MORE! </p>
+
+<h4> Random Numbers : </h4>
+<p> In order to generate a random # you use Math.random()</p>
+
+<h4> Getter & Setter Methods </h4>
+<p>Getter methods can look like: getDay(), getTime(), getYear(). <br>
+    Setter methods can look like: setDay(), setTime(), setYear(). 
+</p> 
+<h4> String Methods</h4>
+<ul> 
+    <li>split() = split a string into separate parts. </li>
+    <li>match() = returns an array of all the matches.</li>
+    <li> g flag = return all matches. </li>
+</ul>
+
+<h3> DOM = Document Object Method </h3>
+<p> Represents html doc as a netword of connected nodes that for a tree like structure. 
+   <ul>
+       <li>getElementById()</li>
+       <li>document.body() = returns body element of a page. </li>
+       <li>document.images() = returns node list of all the images contained in the document.</li>
+       <li>document.links() </li>
+       <li>document.anchors()</li>
+       <li>document.form()</li>
+       <li>getElementsByClassName()</li>
+       <li>document.querySelector()</li>
+    
+   </ul>
+ </p>
+
+ <h3>Keyboard Events </h3>
+ <ul> 
+     <li>Keydown => occurs when pressed down and continues if key is held down.</li>
+     <li>Keypress => occurs after a keydown event.</li>
+     <li>Keyup => occurs when a key is released.</li>
+ </ul>
+ <p> Keydown is an event action of pressing a key where, keypress event is the action of a character being typed on the screen. </p>
+<p>Touchstart event is used for touchscreen devices.</p>
+<ul>
+    <li>touchend -> occurs when users stop touching. </li>
+    <li>touchmove -> already touched, moves around withouth leaving the screen.</li>
+    <li>touchenter -> already started touching surface.</li>
+    <li>touchleave -> still touching screen but leaves element.</li>
+    <li>touchcancel ->when touch event is interuppted.</li>
+    </li>
+</ul>
+</body>
+</html>
