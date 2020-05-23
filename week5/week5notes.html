@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5 Notes</title>
+    <link rel="stylesheet" href="notes.css">
+  </head>
+  <body>
+    <header><h1>Week 5 Notes</h1></header>
+    <h2>Testing & Debugging</h2>
+    <p>There are three types of errors in programming:</p>
+    <ul>
+      <li>
+        <strong>System Error</strong> - There's a problem with the system or
+        external <br />
+        devices with which the program is interacting.
+      </li>
+      <li>
+        <strong>Programmer Error</strong> - The program contains incorrect
+        syntax or faulty logic; could be as simple as a typo.
+      </li>
+      <li><strong>User Error </strong>- User has entered data incorrectly.</li>
+    </ul>
+
+    <h3>Exceptions</h3>
+    <ul>
+      <li>
+        An error that produces a return value that can then be used by the
+        program to deal with the error.
+      </li>
+      <li>ex. unicorn();</li>
+      <li><< ReferenceError:unicorn is not defined.</li>
+    </ul>
+
+    <h3>Stack Traces</h3>
+    <ul>
+      <li>
+        A sequence of functions or method calls that lead to the point where the
+        error occured.
+      </li>
+    </ul>
+    <h3 style="color:red;" >
+      Warnings: will occur if there's an error in the code
+      that isn't enough to cause a crash.
+    </h3>
+
+    <h2>Importance of Testing and Debugging</h2>
+    <ul>
+      <li>
+        Strict Mode: 'use strict'; (added to the first line of javascript.
+      </li>
+      <li>
+        Linting Tools: can test quality of javascript file. Designed to
+        highlight sloppy programming practices.
+      </li>
+      <li>
+        Debugging in the Browser: Process of finding out where bugs occur.
+      </li>
+      <li>Trusty Alert: alert()</li>
+      <li>Console:</li>
+      <ul>
+        <li>console.log()method</li>
+        <li>
+          console.trace()method - will log an interactive stack trace in the
+          console.
+        </li>
+      </ul>
+      <li> Error Objects - ex. const error= new Error("Oops, Something went wrong")</li>
+    </ul>
+  <h3> Throwing exceptions will allow any problems to be highlighted.</h3>
+    <p>ex. throw new Error('something went wrong'); </p>
+    
+    <h3>Exception Handling: </h3>
+    <p>When an exception occurs, the program terminates with an error message.</p>
+<h4> Tests: writing good tests means your code will be less brittle as it develops.</h4>    
+
+<h4> Test Driven Development (TDD)</h4>
+<ol>
+    <li> Write tests that initially fail.</li>
+    <li> Write code to pass the tests.</li>
+    <li>Refactor the code. </li>
+    <li>Test refactored code.</li>
+    <li>Write more tests for more features.</li>
+</ol> 
+<h3> Testing Frameworks </h3>
+    <p> Jest - TDD framework. Install using npm ( npm install -g jest). <br> 
+    Check for version by typing <strong style="color:green"> jest -v</strong>
+    To test a file enter into the folder you want to test and <strong style="color:green">jest -c</strong></p>
+
+
+</body>
+</html>
