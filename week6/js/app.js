@@ -5,6 +5,7 @@ import {
 
 import {
     resetList
+    
 } from './modules/utilities.mjs';
 
 //--------SELECT ELEMENTS --------------------------------------//
@@ -29,11 +30,8 @@ let LIST = [],
 //---------------------------------------------------------------//
 upDateTotal(); 
 //-------------------CREATE CLASSES TO TOGGLE-------------------// 
+ 
 
-const CHECK = "far fa-trash-alt"; 
-const UNCHECK = "far fa-square";
-const LINE_THROUGH = ".lineThrough";
-const DELETE = "far fa-trash-alt";
 
 //-----------Get Item from LOCAL STORAGE ---------------------------//
 let data = localStorage.getItem("TODO");
@@ -82,8 +80,9 @@ dateElement.innerHTML = today.toLocaleDateString("en-us", options);
 function addToDo(toDo, id, job, trash) {
     if("trash" === true) { return; }
 
-    const DONE = done ? CHECK: UNCHECK;
-    const LINE = done ? LINE_THROUGH : " ";
+    const DONE = done ? "far fa-check-square" : "far fa-square";
+    const LINE = done ? lineThrough : " ";
+    const DELETE = "far fa-trash-alt";
 
     const item = `<li class = "item"><span class="check"><i class = "far ${DONE}" job = "complete" id="${id}"></i></span>
          <p id = "item ${LINE}">${toDo}</p> 
@@ -131,17 +130,16 @@ document.addEventListener("keyup", function(event) {
 // -------------Check Off Specific Todos By Clicking ---------------//
 
 
-    $("ul").on("click", "li", "span#check", function () {
-        $(this).toggleClass("lineThrough");
-        $(this).find("i").toggleClass('CHECK UNCHECK');
-         
-    });
+
+$("ul").on("click", "li", function(){
+    $(this).toggleClass("lineThrough");
+    $(this).find("i").toggleClass("far fa-check-square  far fa-square");
+});
 
 // ------ REMOVE A TO DO ELEMENT ------------------// 
-list.addEventListener("click", function (event) {
-    const element = event.target;
 
-});
+
+
 //--------------------REMOVE A TO DO ---------------//
 
 $("ul").on("click", "span#trash", function (event) {
@@ -171,50 +169,22 @@ function upDateTotal() {
 }     
 //---------------Filter the Completed List -----///
  // Don't show a false ID to this bouncer.
-  
+  /*
 allCompleted.addEventListener("click", function () {
+   if (CHECK) { 
+        toDoList.filter(UNCHECK)
+        return toDoList("far fa-check-square"); 
+    }
+
    
-    function bouncer(arr) {
-        var a = item; 
-        var b = "LINE_THROUGH"; 
-            // Don't show a false ID to this bouncer.
-              function a(b) {
-                if(typeof(b) === 'boolean' && !b) {
-                  return new Boolean(b);
-                }
-              }
-          
-              arr = arr.filter(a);
-              return arr;
-          }
-          
-     
-  
+
 });
 
-   
-
-
-
-
+*/
     
    
     
 
       
 
-
- //-----------------------------------------------------------------//
-/*
-    $("ul").on("click", "span#trash", function (event) {
-        $(this).parent().fadeOut(500, function () {
-            $(this).remove();
-            
-        });
-        
-  
-      
-       
-       
-    });
-    */
+ //----------------------------------------------------------------

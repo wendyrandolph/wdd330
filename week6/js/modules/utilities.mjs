@@ -7,4 +7,5 @@ clear.addEventListener("click", function () {
 });
 }
 
+
 export { resetList };
