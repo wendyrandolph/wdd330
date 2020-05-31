@@ -1,0 +1,99 @@
+body{ 
+    max-width: 300px; 
+    margin: 15px auto; 
+}
+.container{ 
+    background: white; 
+    border: 2px solid navy;
+    height: 500px; 
+    position: relative;  
+}
+
+
+/* --- Header Style ----*/ 
+.header {
+    background: lightskyblue;
+    border: 2px solid black;
+    height: auto; 
+    height: 100px; 
+    z-index: -1; 
+}
+
+h1{ 
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0; 
+}
+button#clear { 
+    float: right; 
+    margin-top: 10px; 
+    margin-right: 10px; 
+    background: transparent; 
+    border: none; 
+    font-size: 18px;
+}
+div#date{ 
+    color: navy; 
+    font-size: 18px;
+    margin-top: 20px; 
+    margin-left: 5px; 
+    text-transform: uppercase; 
+
+
+}
+/* ----- Content Style -----*/ 
+ul#list{ 
+    padding: 5px; 
+    margin: 0; 
+}
+div.add-item{ 
+    display: flex; 
+    align-content: center; 
+   position: relative; 
+}
+li.item{ 
+    display: flex; 
+    align-content: center;
+    justify-content: space-between;
+    list-style: none; 
+     
+}
+li:nth-child(2n){
+	background: #f7f7f7;
+}
+p {
+    margin: 5px; 
+    left: 25px; 
+}
+input{
+    width: 100%;
+    background: white;
+    line-height: 18px;
+    border: 1px solid black;
+    
+    
+}
+button#addButton, span#check, span#trash { 
+    background: transparent; 
+    border: none;
+    color: navy; 
+    font-size: 18px; 
+
+}
+.lineThrough{ 
+    text-decoration: line-through;
+    color: gray; 
+}
+
+/* --- Item Detail List --- */ 
+.itemDetails { 
+    list-style: none;
+    display: flex; 
+    justify-content: flex-end;  
+}
+button#all, button#active, button#completed { 
+    border: 0; 
+    background: transparent; 
+    margin-right: 10px; 
+}
+

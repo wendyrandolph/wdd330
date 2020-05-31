@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-App</title>
+    <link rel="stylesheet" href="css/app.css"> 
+     <script src="js/lib/jquery-3.5.1.min.js"> </script>
+    <script src="https://kit.fontawesome.com/ae2253281d.js"></script>
+</head>
+<body>
+    <div class="container"> 
+        <div class="header"> 
+            <div class="clear">
+                <button type="reset" id="clear"><i class="fas fa-sync" aria-hidden="true"></i></button>
+            </div>
+             <h1> To-Do App </h1>
+           <div id="date"></div>
+        </div>
+        <div class="content">
+        <ul id="list">  
+            <!-- <li class ="item"><span id="check"><i class="far fa-square" job="complete" id="0"></i> </span>
+                <p id="item"> </p>
+                <i class="far fa-trash-alt" job="delete" id="0"></i>
+             </li>-->
+            
+            </ul> 
+            <div class="details">
+                <li class="itemDetails"> 
+                    <p id="num"></p><button type="button" class="all">All</button> <button class="active" >Active</button><button class="completed">Completed</button>
+
+                </li>
+            </div>
+        </div>
+        <div class="add-item">
+        <input type="text" id="input" size="50" placeholder="Add a TO DO ITEM"> 
+        <button id="addButton"><i class="far fa-plus-square fa-2x" aria-placeholder="Add a To Do Item"></i></button>
+        </div>
+   </div>
+<script  src="js/app.js" type="module" > </script>
+
+
+</body>
+</html>
