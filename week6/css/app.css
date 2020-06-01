@@ -13,7 +13,7 @@ body{
 /* --- Header Style ----*/ 
 .header {
     background: lightskyblue;
-    border: 2px solid black;
+    border: 2px solid navy;
     height: auto; 
     height: 100px; 
     z-index: -1; 
@@ -43,13 +43,14 @@ div#date{
 }
 /* ----- Content Style -----*/ 
 ul#list{ 
-    padding: 5px; 
+    padding: 10px; 
     margin: 0; 
 }
 div.add-item{ 
     display: flex; 
     align-content: center; 
-   position: relative; 
+   position: absolute;
+   bottom: 0px;  
 }
 li.item{ 
     display: flex; 
@@ -69,11 +70,11 @@ input{
     width: 100%;
     background: white;
     line-height: 18px;
-    border: 1px solid black;
+    border: 1px solid navy;
     
     
 }
-button#addButton, span#check, span#trash { 
+button.addButton, span#check, span#trash { 
     background: transparent; 
     border: none;
     color: navy; 
@@ -82,18 +83,29 @@ button#addButton, span#check, span#trash {
 }
 .lineThrough{ 
     text-decoration: line-through;
-    color: gray; 
+    color: red; 
 }
 
 /* --- Item Detail List --- */ 
 .itemDetails { 
     list-style: none;
     display: flex; 
-    justify-content: flex-end;  
+    justify-content: flex-end; 
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgrey ;
+    align-content: center; 
 }
 .all, .active, .completed { 
     border: 0; 
     background: transparent; 
-    margin-right: 10px; 
+    margin-right: 10px;
+    color: navy; 
+    font-size: 14px;  
+}
+span#num { 
+    color: green; 
+    position: absolute; 
+    left: 15px; 
+
 }
 
