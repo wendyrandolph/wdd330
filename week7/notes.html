@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5 Notes</title>
+    <link rel="stylesheet" href="notes.css">
+  </head>
+  <body>
+    <header><h1>Week 7 Notes</h1></header>
+    <h2>FUNCTION PROPERTIES & METHODS</h2>
+    <p>- all functions have a length property.  (ex square.length) </p>
+   
+    <h2>CALL & APPLY METHODS </h2>
+        <p>ex. function sayHELLO(){ 
+            return 'Hello, my name is ${this.name}'; 
+
+        </p> 
+    <h3>Custom Properties</h3>
+    <ul>
+      <li>
+       Memoisation - provides result caching. 
+      </li>
+      <li>IFFI -  Immediately invoked function expressions () is placed right after the function has been declared. </li>
+      <li> Temporary Variables can be declared to reduce possible confusion if it's only needed "temporarily". </li>
+      <li> Initialization Code - placing a code for a function that will only need to be ran once just inside a set of { } </li>
+      <li> Safe Use of 'Strict Mode' - never any guarantee that if you are working on someone else's code that they coded in strict mode. </li>
+            <p> (function() { <br>
+                'use strict'; <br>
+            // All your code would go inside this function<br>
+            })(); </p>
+            <li>Creating Self-contained Code Blocks - </li>
+            <p>(function() { <br>
+                // block A<br>
+                const name = 'Block A';<br>
+                console.log(`Hello from ${name}`);<br>
+                }());<br>
+                <br>
+                (function() {<br>
+                // block B<br>
+                const name = 'Block B';<br>
+                console.log(`Hello from ${name}`);<br>
+            }());</p> 
+        <li> Recursive Functions - one that recalls itself until a certain condition is met</li>
+        <li> Callbacks - a function passed into another function that is invoked inside that function</li>
+        <li> Functional Programming is a programming paradigm</li>
+        <p> The ability to pass functions as arguments, return them from other functions, 
+            and use anonymous functions and closures,<br> are all fundamental elements of functional programming that JavaScript excels at.</p>
+    </ul>
+
+    <h2> PURE FUNCTIONS </h2>
+    <li> Has the following three rules - </li>
+        <ul> 
+            <li> "1) The return value of a pure function should only depend on the values provided as arguments. <br>
+                It doesn't rely on values from somewhere else in the program."</li>
+            <li> "2) There are no side-effects. A pure function doesn't change any values or data elsewhere in the program. It only makes non-destructive <br>
+                data transformations and returns new values, rather than altering any of the underlying data."" </li>
+            <li> "3) Referential transparency. Given the same arguments, a pure function will always return the same result."</li>
+                    <p> In order to follow these rules, any pure function must have:<br>
+
+                       <li> At least one argument; otherwise the return value must depend on something other than the arguments of the function, breaking the first rule</li>
+                        <li>A return value; otherwise there’s no point in the function (unless it has changed something else in the program – in which case, it’s broken the 'no side-effects' rule).</li>
+                        </p>
+        </ul>
+</body>
+</html>

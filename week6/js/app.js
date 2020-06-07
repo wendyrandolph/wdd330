@@ -1,6 +1,7 @@
 //app.js
 import {
-      upDateTotal
+     num
+    , upDateTotal
     , toDoList
 } from './modules/ls.mjs';
 
@@ -20,33 +21,29 @@ const active = document.querySelector(".active");
 const allCompleted = document.querySelector(".completed");
 const total = document.getElementById("num");
 const addItem = document.querySelector(".addButton");
-const li = document.getElementById(".item"); 
-
+const li = document.getElementById("li#JOB"); 
+const value = document.getElementById(".value"); 
 //-----------------CREATE VARIABLES FOR ITEMS --------------------//
-let item,
-    id,
-    job, 
-    attribute, 
-    value, 
-element;
- 
-
-const CHECK = "far fa-check-square";
-const UNCHECK = "far fa-square";
-
-const DONE = job ? CHECK : UNCHECK; 
-const LINE = job ? lineThrough : " ";
-const DELETE = "far fa-trash-alt";
+let id,
+job;
 
 //---------------------------------------------------------------//
  
 //-------------------CREATE CLASSES TO TOGGLE-------------------// 
 
+const NO = false;
+const YES = true;
 
 
- 
+const CHECK = "far fa-check-square";
+const UNCHECK = "far fa-square";
 
 
+
+const DONE = job ? CHECK : UNCHECK; 
+const LINE = job ? "lineThrough" : " ";
+const DELETE = "far fa-trash-alt";
+const JOB = job ? YES : NO; 
 
 //-----------Get Item from LOCAL STORAGE ---------------------------//
 /*let data = localStorage.getItem("TODO");
@@ -92,15 +89,12 @@ clear.addEventListener("click", function () {
 
     
     //------------------"add a todo" function -----------------------//
-    function addToDo(name, id, job, trash) {
+    function addToDo(name, id, job, trash, clicked) {
         if (trash === true) { return; }
 
-
-      
-
-        const item = `<li class = "item" name="todos" value="false"><span class="check"><i class = "far ${DONE}" value = "false" id="${id}" onclick=change()></i></span>
+        const item = `<li class = "item" id="${JOB}"><span class="check"><i class = "far ${DONE}" ></i></span>
          <p id = "item ${LINE}">${name}</p> 
-         <span id="trash"><i class="far ${DELETE}" ${job} id="${id}"></i></span>
+         <span id="trash"><i class="far ${DELETE}" ></i></span>
          </li>`;
     
         const position = "beforeend";
@@ -108,22 +102,18 @@ clear.addEventListener("click", function () {
 
         list.insertAdjacentHTML(position, item);
 
- 
-    }
-
- 
-
+}
     //----------UPDATE ARRAY WITH NEW ITEMS ---------------//
     
     document.addEventListener("keyup", function (event) {
         if (event.keyCode === 13) {
             //grab a new todo from input 
         
-                const newItem = input.value;
+              let newItem = input.value;
      
                 if (newItem) {
-                    addToDo(newItem, 0, false, false);
-                    id++;
+                    addToDo(newItem, 0, false, false, $(JOB));
+                    
                 }
         
                 input.value = " "; //Clear the input value
@@ -132,10 +122,11 @@ clear.addEventListener("click", function () {
             toDoList.push({
                 name: newItem,
                 id: 0,
-                done: false,
+                job: false,
                 trash: false,
+                clicked: $(JOB)
             });
-  
+            id++; 
         upDateTotal();
     }
 });     
@@ -145,32 +136,54 @@ clear.addEventListener("click", function () {
     // -------------Check Off Specific Todos By Clicking --------------// 
 
  
-$("ul").on("click", "li", function (){
-    element = event.target; 
-     
-    $(this).toggleClass("lineThrough");
-    $(this).find("i").toggleClass("far fa-check-square  far fa-square ");
-     
-    upDateTotal(); 
+$("ul").on("click", "li", function () {
+    let element = event.target;
+    let newTotal;
  
-});
+    $(this).toggleClass("lineThrough");
+    $(this).find("i").toggleClass("far fa-check-square  far fa-square" );
+    $(JOB).toggleClass(YES | NO);
+    let newVal = value,
+        curVal,
+        a,
+        b; 
+    
+    
+     
+    
+    if ("p#item == lineThrough") { 
+        a = toDoList.length - 1; 
+        b = a - 1; 
+        total.innerHTML = b; 
+    } else("li") { 
+        newTotal = toDoList.length - 1; 
+        curVal = newTotal + 1;
+        total.innerHTML = curVal; 
+    }
+
+     
+
+       
+}); 
+        
+ 
 
 
 
-//--------------------REMOVE A TO DO ---------------//
+    //--------------------REMOVE A TO DO ---------------//
 
     $("ul").on("click", "span#trash", function (event) {
         $(this).parent().fadeOut(500, function () {
             $(this).remove();
             event.stopPropagation();
-            toDoList.splice(toDoList.length - 1); 
+            toDoList.splice(toDoList.length - 1);
         
-            upDateTotal(); 
+            upDateTotal();
         });
         //store item on local storage
-   localStorage.setItem("TODO", JSON.stringify(toDoList));
+        localStorage.setItem("TODO", JSON.stringify(toDoList));
     
-     //show the number of tasks
+        //show the number of tasks
    
     });
    
@@ -178,50 +191,39 @@ $("ul").on("click", "li", function (){
 
 
     allCompleted.addEventListener("click", function () {
-        console.log("You clicked the Complete Button"); 
+        let clickedToDos = toDoList.filter(t => t.clicked == true);
+        let newList = list; 
+        clickedToDos.push(); 
+        newList = clickedToDos;
+        return clickedToDos.push(); 
         
-         
-         
-         
-});
-    //--------ACTIVE BUTTON CLICK -----------///
-active.addEventListener("click", function () {
-    
-    
-    let newItem;
-    let newArray = [toDoList];
-    newArray.map(function (job, id, toDoList){
-   
-        var b = newArray.slice({
-            name: newItem,
-            id: 0,
-            done: false,
-            trash: false,
-        });
-       console.log(b);  
-});
-});
   
-    
-
-
+    });
+    //--------ACTIVE BUTTON CLICK -----------///
+    active.addEventListener("click", function () {
+  
+        let activeToDos = toDoList.filter(t => t.clicked == false );
+        console.log(activeToDos);  
+    });
 
     //---------------------SHOW ALL Tasks BUTTON CLICK ------------//    
     all.addEventListener("click", function () {
-         // show all tasks 
+        // show all tasks 
         
-        
-        console.log(toDoList); 
-    });
+         let newArray = toDoList.filter(t => t.clicked && !t.clicked);
+        console.log(newArray);
+    })
 
 
     // ------ Working Add Button --------------------/////
     addItem.addEventListener("click", function () {
-
-        const newItem = input.value;
-     
+        let id;
+        
+     let newItem = input.value;
+        id = id++; 
+         
         if (newItem) {
-            addToDo(newItem, id, false, false);
+            addToDo(newItem, id, bool, bool, $(JOB));
             id++;
         }
         
@@ -229,11 +231,13 @@ active.addEventListener("click", function () {
 
         toDoList.push({
             name: newItem,
-            id: 1,
-            done: false,
-            trash: false
+            id: 0,
+            job: false,
+            trash: false,
+            clicked: $(JOB)
         });
         
         upDateTotal();
     });
- 
+
+
