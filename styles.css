@@ -7,9 +7,14 @@ body {
     background-color: lightsteelblue; 
 
 }
-h1, h2 { 
+h1 { 
     text-align: center; 
     color: navy; 
+}
+h2{ 
+    text-align: left; 
+    text-transform: uppercase;
+    margin-left: 50px; 
 }
 header{ 
     max-width: 100%; 
@@ -27,6 +32,14 @@ main{
     border: 5px solid navy; 
     padding-bottom: 50px; 
 }
+li#scale{ 
+    list-style: none; 
+    font-size: 20px; 
+    color: navy; 
+    margin-left:45px; 
+    padding: 10px; 
+    text-align: left; 
+}
 li{ 
     list-style: none; 
     text-align: center; 
@@ -34,5 +47,8 @@ li{
     color: navy; 
     font-weight: 300;
     margin: 0 10px; 
-    padding: 0; 
+    padding: 5px; 
+}
+p{ 
+    margin-left: 50px; 
 }

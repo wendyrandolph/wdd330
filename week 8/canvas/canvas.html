@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Practice</title>
+    <style type="text/css">
+           
+             h1{ 
+                text-align: center;
+                color: green; 
+                font-size: 40px;
+                text-transform: uppercase;  
+            }
+            
+
+             h2#square{ 
+                position:absolute; 
+                top: 75px; 
+                margin-left:20px; 
+            }
+            h2#pattern { 
+                text-align: center; 
+                position: absolute; 
+                top: 70px; 
+                left: 550px; 
+                 
+            }
+           
+            h2#gradient { 
+                position: absolute; 
+                top: 320px; 
+                margin-left: 20px; 
+            }
+            h2#circle{ 
+                position: absolute; 
+                top: 610px; 
+                margin-left: 40px; 
+            }
+            h2#saveShape { 
+                position: absolute; 
+                top: 610px; 
+                left: 505px; 
+            }
+            /* ----------- Different Canvas's -----*/ 
+            .myCanvas {
+            position: absolute; 
+            top: 140px; 
+            left: 50px; 
+            
+            }
+            .demo2 { 
+                position: absolute; 
+                top: 120px; 
+                left: 500px;  
+            }
+            .demo3 { 
+                
+                position: absolute; 
+                top: 375px; 
+                left: 50px;  
+            }
+            .demo4 { 
+                border: solid 2px black; 
+                position: absolute; 
+                top: 675px; 
+                left: 50px;  
+            }
+            .demo5 { 
+                border: solid 2px palevioletred; 
+                position: absolute; 
+                top: 675px; 
+                left: 500px; 
+            }
+           #saveButton{ 
+               position: absolute; 
+               top: 910px; 
+               left: 500px; 
+           }
+    </style> 
+</head>
+<body>
+    <header> 
+
+        <h1> Canvas Practice </h1>
+    </header> 
+
+   <main id="container">
+       <h2 id="square"> Creating a filled rectangle on a Canvas</h2> 
+    <canvas id="myCanvas" class="myCanvas"> 
+        "Sorry! Your browser doesn't support canvas."
+    </canvas>
+    
+    <h2 id="pattern"> Using canvas to create a pattern Fill </h2>
+    <canvas id="demo2" class="demo2" width="450" height="450"> 
+        "Sorry! Your browser doesn't support canvas."
+       
+    </canvas>
+    <h2 id="gradient">Creating a gradient using canvas</h2> 
+    <canvas id="demo3" class="demo3" height="250">
+        "Sorry! Your browser doesn't support canvas."
+    </canvas>
+
+
+    <h2 id="circle">Creating a circle using canvas</h2> 
+    <canvas id="demo4" class="demo4" height="250">
+        "Sorry! Your browser doesn't support canvas."
+    </canvas>
+    
+
+</main> 
+</body>
+<script src="canvas.js"> 
+
+</script>
+</html>

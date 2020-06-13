@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //  https://swapi.dev/api/starships/
+        /*
+         1. Create a basic application and use fetch to pull a list of people or ships. 
+         Display this list in the browser window.
+         */
+        let shipArray = [];
+        
+         fetch('https://swapi.dev/api/starships/', { 
+            method: 'GET',
+            mode: 'cors',
+            redirect: 'follow',
+            cache: 'no-cache'
+         }) 
+        
+            .then(response => { 
+                return response.json(); 
+            })
+           
+             .then(starships => {
+                 let ships = starships.results;
+                 let nextURL = starships.next;
+                 let previousURL = starships.previous;
+                 const previous = document.getElementById('previous');
+                 const next = document.getElementById('next');
+                 let output = document.getElementById("output");
+                 showShips(ships);
+
+                 if (nextURL) {
+                    next.onclick = () => nextTen(nextURL);
+                 }
+  
+                 if (previousURL) {
+                     next.onclick = () => nextTen(previousURL);
+                 }
+             })
+
+        function showShips(ships) {
+            output.innerHTML = "";
+            for (let i = 0; i < ships.length; i++) {
+                let outputDiv = output.appendChild(createElement("div", ships[i].name, "starships"));
+                outputDiv.addEventListener("click", details);
+                outputDiv.setAttribute("id", ships[i].name)
+                shipArray.push(ships[i]);
+            }
+        }
+
+        function details(event) {
+            let target = event.target;
+            let id = target.getAttribute("id");
+            let model = shipArray[thisOne(id)].model;
+            let mfg = shipArray[thisOne(id)].manufacturer;
+            let output = document.getElementById(id);
+            let container = output.appendChild(createElement("div", "", "container"))
+            container.appendChild(createElement("div", "Model: " + model, "model"));
+            container.appendChild(createElement("div", "Manufacturer: " + mfg, "mfg"));
+            let button = container.appendChild(createElement("button", "X", "close"));
+            button.addEventListener("click", close);
+        }
+
+        function close() {
+            let container = document.querySelectorAll(".container")[0];
+            container.parentNode.removeChild(container);
+        }
+        function thisOne(id) {
+            //Find index of specific object using findIndex method.    
+            let thisOne =shipArray.findIndex((obj => obj.name == id));
+            return thisOne;
+        }
+
+        function createElement(tag, text, className) {
+            const genElement = document.createElement(tag);
+            genElement.textContent = text;
+            genElement.classList.add(className);
+            return genElement;
+        }
+        function nextTen(url) {
+            const next = document.getElementById('next');
+            const previous = document.getElementById('previous');
+            if (url) {
+                fetch(url)
+            .then(response => response.json())
+            .then(nextShips => {
+                showShips(nextShips.results);
+            
+                nextURL = nextShips.next;
+                previousURL = nextShips.previous;
+
+                if (nextURL) {
+                    next.onclick = () => nextTen(nextURL);
+                }
+
+                if (previousURL) {
+                    previous.onclick = () => nextTen(previousURL);
+                }
+            })
+            }
+         }
+
+      
+        /*
+         2. Skip to page
+         Add a button to your paginated list for each page in the results set that will let 
+         you jump straight to that page. For example if the results set had 57 items in it... 
+         and you got 10 at a time, you would have 6 pages of results.*/
+
+
+    </script>
+    <style>
+
+        img{
+            width: 100%;
+            display: block;
+            position: relative;
+            bottom: 25%;
+            margin-top: 30px; 
+        }
+        body { font-family: Arial, Helvetica, sans-serif; 
+               background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zS0DFoskOuz2zFJMo_ElvQHaFJ%26pid%3DApi&f=1"); 
+               margin: 0; 
+               color: #fff;
+        }
+        header{
+            text-align: center;
+        }
+        h1{
+            font-size: 3em;
+            color: yellow; 
+        }
+        h2{
+            font-size: 2.25em;
+        }
+        main{
+            text-align: center;
+            margin: 1em;
+        }
+        #bottom {
+            display: grid;
+            grid-template-columns: 120px 1fr 120px;
+            align-self: flex-end;
+            min-width: 400px;
+            max-width: 800px;
+            margin:  2em auto;
+            padding: 1em;
+        }
+        a {
+            color: #979792;
+            transition: .3s;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #cacbc8;
+        }
+        #output *{
+            font-size: 2em;
+            padding: .25em;
+            
+        }
+        #output .container {
+            color: yellow;
+            font-size: 20px;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.zS0DFoskOuz2zFJMo_ElvQHaFJ%26pid%3DApi&f=1");
+            
+        }
+            #output .container div{
+                width: 75%;
+                margin: auto;
+                padding-top: 3em;
+            }
+            button.close {
+                background-color: yellow;
+                border-radius: 5px;
+                margin-top: 2em;
+            }
+        @media only screen and (max-width: 600px) {
+            .output {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+        @media only screen and (min-width: 601px) {
+            .output {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Star Wars</h1>
+        <h2>Star Ships</h2>
+     </header>
+    <main>
+        <div id="output"></div>
+        <div id="bottom">
+            <a href="#" id="previous">&laquo; Previous</a>
+            <img src="http://www.pngall.com/wp-content/uploads/2016/03/Star-Wars-Ship-Vector-PNG.png" alt="Star Wars Ship" />
+            <a href="#" id="next">Next &raquo;</a>
+        </div>
+
+    </main>
+</body>
+</html>
