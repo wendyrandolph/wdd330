@@ -1,0 +1,180 @@
+body {
+    max-width: 960px;
+    margin: 0px auto;
+    padding: 1em;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lightsteelblue; 
+
+}
+h1 { 
+    text-align: center; 
+    color: navy; 
+    display: flex; 
+}
+h2{ 
+    text-align: left; 
+    text-transform: uppercase;
+    margin-left: 50px; 
+}
+header {
+    text-align: center;
+    color: #B33951;
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 20px; 
+    align-items: center;;
+    justify-content: space-evenly; 
+    grid-gap: 20px; 
+    border: 5px solid navy; 
+}
+main{
+    max-width: 100%;
+    margin: 0 auto; 
+    background-color: lightyellow;
+    border: 5px solid navy; 
+    padding-bottom: 50px; 
+    margin-top: 25px; 
+}
+li#scale{ 
+    list-style: none; 
+    font-size: 20px; 
+    color: navy; 
+    margin-left:45px; 
+    padding: 10px; 
+    text-align: left; 
+}
+li{ 
+    list-style: none; 
+    text-align: center; 
+    font-size: 18px; 
+    color: navy; 
+    font-weight: 200;
+    margin: 0 10px; 
+    padding: 5px; 
+}
+
+
+
+  button{ 
+      background: white; 
+      border: 2px solid black; 
+      
+      text-transform: uppercase; 
+      font-size: 12px; 
+  }
+  input#choose{ 
+      margin-left: 5px; 
+      margin-top: 10px; 
+  }
+  .example2{ 
+      
+      margin-top: 20px; 
+      padding-top: 20px; 
+  }
+  p.form1{ 
+      color: navy;
+        margin-left: 50px; 
+        width: 500px; 
+  }
+div.form2{ 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+      background: lightblue; 
+      color: black; 
+      border-top: 2px solid black; 
+      border-bottom: 2px solid black;  
+  }
+  input#number{ 
+      border: 2px solid navy; 
+  }
+  form {
+    font: 1em sans-serif;
+    max-width: 320px;
+    margin-top: 20px; 
+    margin-left: 50px;
+   align-content: left; 
+  }
+  
+  p > label {
+    display: block;
+    padding-top: 10px;
+    margin: 0; 
+    width: 100%;  
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea,
+  fieldset {
+    width : 100%;
+    border: 1px solid #333;
+    box-sizing: border-box;
+  }
+  
+  input:invalid {
+    box-shadow: 0 0 5px 1px red;
+  }
+  
+  input:focus:invalid {
+    box-shadow: none;
+  }
+.space{ 
+    margin-top: 10px; 
+}
+div.button{ 
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+}
+.mailbutton{ 
+    margin-top: 5px; 
+}
+/* STYLING FOR A NAV BAR */ 
+nav {
+
+    line-height: 3em;
+    text-align: center;
+    font-size: 1rem; 
+     
+ }
+
+
+nav>ul {
+     
+    list-style-type: none;
+    display: flex;   
+    flex: 1 1 auto;
+   grid-column: 2/4; 
+      
+}
+a{ 
+    color: #B33951; 
+}
+nav a {
+    
+    min-width: 70px;
+    color: #54494b;
+    text-transform: uppercase; 
+    font-size: 14px; 
+    font-weight: 300px;
+    padding: 5px; 
+
+}
+nav a:link{
+    color: #B33951; 
+}
+
+
+nav a:visited {
+    color: #54494b;
+}
+
+nav a:hover {
+    color: lightgoldenrodyellow;
+    background-color: navy; 
+    padding:5px; 
+}
