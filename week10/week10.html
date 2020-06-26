@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD 330 Portfolio</title>
+    <link rel="stylesheet" href="/wendyrandolph-wdd330/wendyrandolph-wdd330/wendyrandolph-wdd330/styles.css" />
+ 
+    
+    <title>Favorite fruit start</title>
+   
+</head>
+
+<body>
+    <header>
+       <h1>WDD330 PORTFOLIO</h1>  
+       <nav>
+        <ul>
+          <li><a href="/wendyrandolph-wdd330/wendyrandolph-wdd330/wendyrandolph-wdd330/index.html">HOME</a> </li>
+          <li><a href="#">Form Validation</a> </li>
+          <li><a href="quakes/index.html">Quake List Activity</a></li>
+         
+        </ul>
+      </nav>
+    </header> 
+    <main> 
+        <h2> Simple Form Validation Examples</h2>
+        <p class="form1">In this first example it's simply set up to check for a pattern. <br> So if anything is typed other than the two listed options it comes back as invalid. </p> 
+    <form class="example1">
+        
+      <label for="choose">Would you prefer a banana or a cherry?</label>
+      <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+      <button>Submit</button>
+    </form>
+
+    <div class="form2"> 
+    <p class="form1">In this example the validation is checking for a set amount of characters in the fruit box. <br>
+        And has set parameters for the number of them a person would like.  </p>
+    <form class="example2">
+       
+        <div class="space">
+          <label for="choose">Would you prefer a banana or a cherry?</label>
+          <input type="text" id="choose" name="i_like" required minlength="6" maxlength="6">
+        </div>
+        <div class="space">
+          <label for="number">How many would you like?</label>
+          <input type="number" id="number" name="amount" value="1" min="1" max="10">
+        </div>
+        <div class="button">
+          <button>Submit</button>
+        </div>
+      </form>
+    </div>
+
+      <div class="form3">
+      <form>
+          <p>In this set of examples we can see a wide range of validation, and input types. </p> 
+        <p>
+          <fieldset>
+            <legend>Do you have a driver's license?<abbr title="This field is mandatory" aria-label="required">*</abbr></legend>
+            <!-- While only one radio button in a same-named group can be selected at a time,
+                 and therefore only one radio button in a same-named group having the "required"
+                 attribute suffices in making a selection a requirement --> 
+            <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+            <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+          </fieldset>
+        </p>
+        <p>
+          <label for="n1">How old are you?</label>
+          <!-- The pattern attribute can act as a fallback for browsers which
+               don't implement the number input type but support the pattern attribute.
+               Please note that browsers that support the pattern attribute will make it
+               fail silently when used with a number field.
+               Its usage here acts only as a fallback -->
+          <input type="number" min="12" max="120" step="1" id="n1" name="age"
+                 pattern="\d+">
+                </p>
+                <p>
+          <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory" aria-label="required">*</abbr></label>
+          <input type="text" id="t1" name="fruit" list="l1" required
+                 pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+          <datalist id="l1">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Apple</option>
+            <option>Strawberry</option>
+            <option>Lemon</option>
+            <option>Orange</option>
+          </datalist>
+        </p>
+       <p>
+          <label for="t2">What's your e-mail address?</label>
+          <input type="email" id="t2" name="email">
+        </p>
+        <p>
+          <label for="t3">Leave a short message</label>
+          <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+        </p>
+        <p>
+          <button>Submit</button>
+        </p>
+      </form>
+      </div> 
+
+</main> 
+
+</body>
+
+</html>

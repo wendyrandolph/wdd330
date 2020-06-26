@@ -2,6 +2,7 @@
   <html>
   <head>
   <title>Story Writer</title>
+  <link rel="stylesheet" href="/wendyrandolph-wdd330/wendyrandolph-wdd330/wendyrandolph-wdd330/styles.css"> 
         <script>
             function loadStory(){
                var storyName = document.getElementById("name_input").value
@@ -33,7 +34,16 @@
  
 </head>
  <body>
-  
+    <header>  
+   <h1>WDD 330 Portfolio</h1>  
+   <nav> 
+     <ul> 
+       <a href="/wendyrandolph-wdd330/wendyrandolph-wdd330/wendyrandolph-wdd330/index.html">HOME</a> 
+     </ul>
+   </nav>
+   </header>
+
+  <main> 
   Story Name:<input id=name_input></input>
     <section>
           <button onclick="loadStory()"> Find and Edit It</button>
@@ -43,6 +53,6 @@
  <textarea id="story_editor" placeholder="Write a totally awesome story
  here."></textarea>
     <section id="story_display"></section>
-
+</main>
  </body>
  </html>
