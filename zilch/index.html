@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zilch</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="scripts/lib/jquery-3.5.1.min.js"> </script>
+    
+</head>
+<body>
+    <header> 
+        <h1> Let's Play Zonk </h1>
+    </header>
+    <main>
+        <div id="userName"> 
+            <input type="text" id="input" placeholder="Enter your name here"><button type="submit" id="userInput" onclick="playerName()">Start Game</button></input> 
+           
+        </div> 
+        <p id="userName"></p> 
+        <div id="dice" class="start"> 
+            
+            <img src="purple_dice_0.png" id="dice1" class="click animate shake">
+           
+           
+            <img src="purple_dice_0.png" id="dice2" class="click" >
+        
+        
+            <img src="purple_dice_0.png" id="dice3" class="click">
+        
+        
+            <img src="purple_dice_0.png" id="dice4" class="click">
+     
+       
+            <img src="purple_dice_0.png" id="dice5" class="click">
+     
+        
+            <img src="purple_dice_0.png" id="dice6"  class="click">
+            
+            </div>
+
+
+            <div id="confirm" class="confirmShow">  </div>
+                <div  id="showNow" class="hide"> 
+                    <h3> Are you sure you want to keep the clicked dice? </h3>
+                    <button id="yesBtn" > Yes </button> 
+                    </div>
+            
+            <div id="results" class="showZonk">
+                <p> You didn't roll any scoring dice on that last roll, would you like to continue? </p>
+                <button id="zonk" > Yes, Continue </button> 
+                <img src="Zonk_Purple.jpg" alt= "Purple Zonk sign" class="showSign"> 
+            </div>
+                
+                <button id="roll"  class ="buttonShow" >Roll The Dice </button>
+                <div id="result"></div> 
+<!--
+
+<div id="border" class="hidden"> Round Total =   </div> 
+-->
+<div id="rollScore" class="rollShow"> </div>
+            <div id="roundScore" class="showScore"> </div>
+            
+           
+            <div id="runScore" class="runShow"></div> 
+                <div  id="keptScore" class="hide"> 
+                    <h3> Do you want to bank these points? </h3>
+                    <button id="yesBtn1" class="check"> Yes </button> 
+                    <button id="noBtn1" > No </button>
+                    </div>
+
+            <div id="total" class="showScore1">
+                <button class="keepButtonHide" > Keep Points </button>
+            
+            </div>
+          
+
+         
+               
+            
+</main> 
+</body>
+<script src="/scripts/zilch.js" > </script>
+</html>

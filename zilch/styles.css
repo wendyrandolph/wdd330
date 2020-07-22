@@ -1,0 +1,198 @@
+body { 
+    max-width: 350px ;
+    margin: 0 auto; 
+    
+}
+main{ 
+    max-width: 100%; 
+    height: 500px; 
+    background:#ed5cac;
+    margin-top: 25px; 
+    align-items: center; 
+    display: grid; 
+    padding: 10px; 
+
+     
+}
+#dice1, #dice2, #dice3, #dice4, #dice5, #dice6 { 
+    
+    width: 45px; 
+    height: 45px;
+   margin: 0 auto; 
+
+}
+h1{ 
+  width: 100%;
+
+  text-align: center;
+  color:#ed5cac;
+  font-weight: 200px;
+  margin-top: 50px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  text-decoration-line: overline underline;
+  text-decoration-style: wavy;
+  z-index: -1 ;
+  text-justify: distribute;
+}
+
+button#roll{ 
+ 
+  top: 100px; 
+  right: 50px; 
+  z-index: 1; 
+  width: 100px; 
+  background-color: teal; 
+
+}
+.buttonShow{ 
+    width: 55px; 
+    height: 55px;
+    margin: 0 auto; 
+    background: transparent;
+    transition-duration: 0.4s;
+    border: none; 
+    border-radius: 30px;
+    padding-bottom: 20px; 
+    border: 2px black solid; 
+   
+}
+  .buttonShow:hover {
+    background-color: plum; /* Green */
+    color: white;
+    border: none; 
+  }
+
+ .buttonHide{ 
+   display: none; 
+ }
+
+.clicked{
+  
+  background:#34cfeb;  
+  
+ 
+} 
+.clicked:hover{ 
+  background: white;  
+}
+ 
+#border { 
+  border-top: 6px solid navy; 
+  margin-top: 50px ;
+}
+#results{ 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 20px; 
+  text-align: center; 
+}
+div#showNow.show{ 
+  display: block; 
+  background-color: turquoise;
+}
+div#showNow.hide{ 
+  display: none; 
+}
+
+div.confirmShow { 
+  margin: 0 auto; 
+  font-size: 20px;
+  color: white; 
+  text-transform: uppercase;
+}
+
+div.confirmHide{ 
+  display: none; 
+}
+
+div#dice.start{ 
+display: grid; 
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+grid-gap: 5px; 
+}
+div.end{ 
+  display: none; 
+}
+
+div#userName{ 
+margin-left: 60px; 
+margin-top: 75px; 
+height: 16px; 
+}
+
+input#input{
+  height:20px; 
+}
+
+button#userInput{ 
+  font-size: 16px; 
+  height: 26px; 
+  background-color: green;
+  color: white; 
+  border-radius: 1px;
+}
+
+.runHide { 
+  display: none; 
+}
+.rollShow { 
+  background:white;  
+  font-size: 20px; 
+  color: #34cfeb; 
+  margin-left: 10px; 
+  margin-right: 10px; 
+  padding-left: 10px;
+}
+
+#keptScore.showKept { 
+ Background: lightyellow; 
+}
+
+#keptScore.hide { 
+  display: none; 
+}
+.hideSign { 
+  display: none; 
+}
+
+.hideZonk { 
+ display: none; 
+}
+.showZonk { 
+  padding: 5px; 
+}
+
+.checked { 
+  background: red; 
+
+}
+.rollHide{ 
+  display: none; 
+}
+button#zonk { 
+  background: purple; 
+  color:  white;
+  height: auto;
+  margin-bottom: 10px;
+  font-size: 20px; 
+  padding: 5px;  
+}
+
+.showScore { 
+  background:#34cfeb;  
+  font-size: 20px; 
+  color:white; 
+  margin-left: 10px; 
+  margin-right: 10px; 
+  padding-left: 10px; 
+}
+.runShow { 
+  background: #34cfeb;  
+  font-size: 16px; 
+  color: white; 
+  margin-left: 10px; 
+  margin-right: 10px; 
+  padding-left: 10px;
+}
+.keepButtonHide { 
+  display: none; 
+}
