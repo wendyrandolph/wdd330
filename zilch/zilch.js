@@ -31,7 +31,7 @@ var reRoll = false;
 var list2 = document.querySelectorAll("clicked");
 var myCollection2 = Array.from(list2);
 var newArray = [0, 0, 0, 0, 0, 0];
-var diceCount = [];
+var diceCount = [0,0,0,0,0,0];
 
 
 
@@ -67,7 +67,9 @@ var rollOnce = document.getElementById("roll");
 
 //Add event Listener on the Roll button 
 rollOnce.addEventListener("click", function() {
-	clickedDice();
+    clickedDice();
+    newResults(); 
+    
 var roll = roll++; 
 	confirm.className = "confirmHide";
 
@@ -597,7 +599,7 @@ var diceImages = new Image([1]);
 
 
 	resetResults();
-	newReset();
+	
 	button.className = "buttonShow";
 
 	checkForWinner();
@@ -614,27 +616,7 @@ function checkForWinner() {
 	}
 }
 
-function newReset() {
-	newScore1 = 0;
 
-	all6 = 0;
-	straight1 = 0;
-	triple1 = 0;
-	triple2 = 0;
-	triple3 = 0;
-	triple4 = 0;
-	triple5 = 0;
-	triple6 = 0;
-	trip1 = 0;
-	trip2 = 0;
-	trip3 = 0;
-	trip4 = 0;
-	trip5 = 0;
-	trip6 = 0;
-	score1 = 0;
-	score5 = 0;
-
-}
 //console.log(roundScore + " " + "This is the RoundScore Array after Reset");
 
 
