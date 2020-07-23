@@ -1,5 +1,6 @@
 
-  const baseURL = 'http://127.0.0.1:3000';
+let proxy;
+  const baseURL = "http://localhost:3000";
   // helper function to make an http request with fetch.
   // returns a promise to a json object
   export async function makeRequest(

@@ -1,3 +1,5 @@
+
+
 //Auth class which provides basic JWT based authentication for our app.
 // Requires: access to the makeRequest function
 import { makeRequest } from './authHelpers.js';

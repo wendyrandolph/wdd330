@@ -4,7 +4,7 @@ body {
     
 }
 main{ 
-    max-width: 100%; 
+    max-width: 350px; 
     height: 500px; 
     background:#ed5cac;
     margin-top: 25px; 
@@ -105,6 +105,8 @@ div.confirmHide{
 }
 
 div#dice.start{ 
+ 
+ margin-top: none; 
 display: grid; 
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 grid-gap: 5px; 
@@ -114,21 +116,32 @@ div.end{
 }
 
 div#userName{ 
-margin-left: 60px; 
-margin-top: 75px; 
+
 height: 16px; 
+display: grid; 
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr; 
 }
 
 input#input{
-  height:20px; 
+  height:26px; 
+  
+  grid-column: 1/2;
+
+margin-left: none; 
+
+ 
 }
 
 button#userInput{ 
   font-size: 16px; 
-  height: 26px; 
-  background-color: green;
+  width: 150px; 
+  height: 30px; 
+  background-color: black; 
   color: white; 
   border-radius: 1px;
+  grid-column: 2/3;
+  
 }
 
 .runHide { 
