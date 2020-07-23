@@ -16,7 +16,7 @@ var clicked5 = document.getElementById("dice5");
 var clicked6 = document.getElementById("dice6");
 var yesBtn = document.getElementById("yesBtn");
 
-var yesBtn1 = document.getElementById("keptScore");
+var yesBtn1 = document.getElementById("yesBtn1");
 var noBtn1 = document.getElementById("noBtn1");
 var showNow = document.getElementById("showNow");
 var i;
@@ -62,9 +62,10 @@ var rollOnce = document.getElementById("roll");
 //Add event Listener on the Roll button
 rollOnce.addEventListener("click", function () {
   clickedDice();
-  newResults();
+  
 
-  var roll = roll++;
+  var roll = 0;
+  roll++; 
   confirm.className = "confirmHide";
 
   if (roll >= 1) {
@@ -90,7 +91,7 @@ function clickedDice() {
 
   //create an array from dice that are to be rolled again
 
-  result = [0, 0, 0, 0, 0, 0];
+ 
 
   //This part simulates the dice roll for each die
   if (myCollection.includes(clicked1)) {
@@ -138,10 +139,6 @@ function clickedDice() {
   document.getElementById("dice5").src = diceImages[result[4]];
   document.getElementById("dice6").src = diceImages[result[5]];
 
-  getResults();
-}
-
-function getResults() {
   var diceResults = [0, 0, 0, 0, 0, 0];
 
   var list = document.querySelectorAll(".click");
@@ -175,17 +172,11 @@ function getResults() {
   var six = false,
     straight = false,
     threeKind = false,
-    tripleOne = false,
-    tripleTwo = false,
-    tripleThree = false,
-    tripleFour = false,
-    tripleFive = false,
-    tripleSix = false,
     haveOne = false,
     haveFive = false,
     haveZonk = false;
 
-  for (i = 0; i < myCollectionNew.length; i++) {
+  for (i = 0; i < result.length; i++) {
     if (diceResults[i] == 6) {
       six = true;
 
@@ -207,21 +198,6 @@ function getResults() {
       diceResults[i] == 5
     ) {
       threeKind = true;
-
-      if (diceResults[0] >= 3) {
-        tripleOne = true;
-      } else if (diceResults[1] >= 3) {
-        tripleTwo = true;
-      } else if (diceResults[2] >= 3) {
-        tripleThree = true;
-      } else if (diceResults[3] >= 3) {
-        tripleFour = true;
-      } else if (diceResults[4] >= 3) {
-        tripleFive = true;
-        // haveFive = false;
-      } else if (diceResults[5] >= 3) {
-        tripleSix = true;
-      }
     }
   }
 
@@ -297,10 +273,10 @@ zonkZone.addEventListener("click", function () {
   document.getElementById("roll").className = "buttonShow";
 
   //reset the roundScore to 0 to start accumulating a new round total;
-  newArray = [0, 0, 0, 0, 0, 0];
+ 
 
   console.log(newArray + " " + " This is the newArray after a Zonk reset");
-  newReset();
+
   resetResults();
 });
 
@@ -318,7 +294,8 @@ function resetResults() {
   }
 }
 
-//running score amount variables
+
+newArray = [0, 0, 0, 0, 0, 0];
 
 // Select which dice to "keep and score"
 dice1 = clicked1.addEventListener("click", function () {
@@ -377,6 +354,7 @@ dice.addEventListener("click", function () {
 
   showNow.className = "show";
   button.className = "buttonHide";
+
   //Not sure if this even removes the listener event but will try anyway.
 });
 
@@ -387,17 +365,21 @@ var keepScore;
 //if the Yes button on the confirm message is clicked this will run;
 yesBtn.addEventListener("click", function () {
   yesBtn = event.target;
-
+  
+  newResults(); 
+   
   confirm.className = "confirmHide"; //hide the confirm message
+  diceCount[0,0,0,0,0,0]
+});
 
+function newResults() {
   diceCount = [0, 0, 0, 0, 0, 0];
 
-  var newTotal;
-  newResults();
-
+ 
   //running total for the round ;
-
- roundScore = [
+  var newTotal;
+  
+  roundScore = [
     all6,
     straight1,
     triple1,
@@ -415,6 +397,7 @@ yesBtn.addEventListener("click", function () {
     score1,
     score5,
   ];
+
   sum1 = 0;
 
   for (i = 0; i < roundScore.length; i++) {
@@ -422,12 +405,11 @@ yesBtn.addEventListener("click", function () {
   }
   console.log(roundScore + " " + "RoundScore Array");
 
-  newScore1 += 0;
-  newTotal += newScore1 + sum1;
+ 
+  newTotal = sum1; 
 
   //update the rollScore from above
-  document.getElementById("rollScore").innerHTML =
-    "Score for this roll is = " + " " + sum1;
+  document.getElementById("rollScore").innerHTML = "Score for this roll is = " + " " + sum1;
 
   //update the roundScore
   document.getElementById("roundScore").innerHTML =
@@ -485,103 +467,138 @@ yesBtn.addEventListener("click", function () {
   } else {
     reRoll = false;
   }
-});
-
-var noBtn1;
-noBtn1.addEventListener("click", function () {
-  noBtn1 = event.target;
-  document.getElementById("keptScore").className = "hide";
-  //document.getElementById("rollScore").innerHTML = "Score for this round is = " + " " + sum1;
-  //document.getElementById("roundScore").innerHTML = "Score for this round is = " + " " + newTotal;
-});
-var newScore;
-
-yesBtn1.addEventListener("click", function () {
-  yesBtn1 = event.target;
-  button.className = "buttonHide";
-  document.getElementById("runScore").innerHTML =
-    " You get to start rolling again ";
-
-  keepScore = [
-    all6,
-    straight1,
-    triple1,
-    triple2,
-    triple3,
-    triple4,
-    triple5,
-    triple6,
-    trip1,
-    trip2,
-    trip3,
-    trip4,
-    trip5,
-    trip6,
-    score1,
-    score5,
-  ];
-
-  var sum = 0;
-  for (i = 0; i < keepScore.length; i++) {
-    sum += keepScore[i];
-  }
-  console.log(sum + " " + "This is the sum of the array");
-
-  newScore = 0;
-
-  var total = (newScore += sum);
-
-  document.getElementById("total").innerHTML = total;
-
-  document.getElementById("rollScore").innerHTML =
-    "Score for this roll is = " + 0;
-  document.getElementById("roundScore").innerHTML =
-    "Score for this round is = " + 0;
-
-  document.getElementById("keptScore").className = "hide";
-
-  var diceImages = new Image([1]);
-  diceImages = [(diceImages[0] = "purple_dice_0.png")];
-
-  document.getElementById("dice1").className = "click";
-  document.getElementById("dice2").className = "click";
-  document.getElementById("dice3").className = "click";
-  document.getElementById("dice4").className = "click";
-  document.getElementById("dice5").className = "click";
-  document.getElementById("dice6").className = "click";
-
-  document.getElementById("dice1").src = diceImages[0];
-  document.getElementById("dice2").src = diceImages[0];
-  document.getElementById("dice3").src = diceImages[0];
-  document.getElementById("dice4").src = diceImages[0];
-  document.getElementById("dice5").src = diceImages[0];
-  document.getElementById("dice6").src = diceImages[0];
-
-  resetResults();
-
-  button.className = "buttonShow";
-
-  checkForWinner();
-});
-
-function checkForWinner() {
-  if (newScore >= 2500) {
-    alert("You won!! Thanks for playing");
-    resetResults();
-    start.className = "end";
-    button.className = "buttonHide";
-    start.className = "start";
-  }
+ 
 }
 
-//console.log(roundScore + " " + "This is the RoundScore Array after Reset");
+  noBtn1.addEventListener("click", function () {
+    noBtn1 = event.target;
+    document.getElementById("keptScore").className = "hide";
+    //document.getElementById("rollScore").innerHTML = "Score for this round is = " + " " + sum1;
+    //document.getElementById("roundScore").innerHTML = "Score for this round is = " + " " + newTotal;
+  });
+  var newScore;
 
-// a function to use after selecting clicked dice to help with scoring
+  yesBtn1.addEventListener("click", function () {
+    yesBtn1 = event.target;
+    button.className = "buttonHide";
+    document.getElementById("runScore").innerHTML =
+      " You get to start rolling again ";
+
+    keepScore = [
+      all6,
+      straight1,
+      triple1,
+      triple2,
+      triple3,
+      triple4,
+      triple5,
+      triple6,
+      trip1,
+      trip2,
+      trip3,
+      trip4,
+      trip5,
+      trip6,
+      score1,
+      score5,
+    ];
+
+    var sum = 0;
+    for (i = 0; i < keepScore.length; i++) {
+      sum += keepScore[i];
+    }
+    console.log(sum + " " + "This is the sum of the array");
+
+    newScore = 0;
+
+    var total = (newScore += sum);
+
+    document.getElementById("total").innerHTML = total;
+
+    document.getElementById("rollScore").innerHTML =
+      "Score for this roll is = " + 0;
+    document.getElementById("roundScore").innerHTML =
+      "Score for this round is = " + 0;
+
+    document.getElementById("keptScore").className = "hide";
+
+    var diceImages = new Image([1]);
+    diceImages = [(diceImages[0] = "purple_dice_0.png")];
+
+    document.getElementById("dice1").className = "click";
+    document.getElementById("dice2").className = "click";
+    document.getElementById("dice3").className = "click";
+    document.getElementById("dice4").className = "click";
+    document.getElementById("dice5").className = "click";
+    document.getElementById("dice6").className = "click";
+
+    document.getElementById("dice1").src = diceImages[0];
+    document.getElementById("dice2").src = diceImages[0];
+    document.getElementById("dice3").src = diceImages[0];
+    document.getElementById("dice4").src = diceImages[0];
+    document.getElementById("dice5").src = diceImages[0];
+    document.getElementById("dice6").src = diceImages[0];
+
+    resetResults();
+
+    button.className = "buttonShow";
+
+    checkForWinner();
+  });
+
+  function checkForWinner() {
+    if (newScore >= 2500) {
+      alert("You won!! Thanks for playing");
+      resetResults();
+      start.className = "end";
+      button.className = "buttonHide";
+      start.className = "start";
+    }
+  }
+
+  //console.log(roundScore + " " + "This is the RoundScore Array after Reset");
+
+  // a function to use after selecting clicked dice to help with scoring
+  var all6 = 0,
+  straight1 = 0,
+  triple1 = 0,
+  triple2 = 0,
+  triple3 = 0,
+  triple4 = 0,
+  triple5 = 0,
+  triple6 = 0,
+  trip1 = 0,
+  trip2 = 0,
+  trip3 = 0,
+  trip4 = 0,
+  trip5 = 0,
+  trip6 = 0,
+  score1 = 0,
+  score5 = 0;
+
+  var six = false,
+  straight = false,
+  threeKind = false,
+  tripleOne = false,
+  tripleTwo = false,
+  tripleThree = false,
+  tripleFour = false,
+  tripleFive = false,
+  tripleSix = false,
+  triplePair = false,
+  triplePair1 = false,
+  triplePair2 = false,
+  triplePair3 = false,
+  triplePair4 = false,
+  triplePair5 = false,
+  triplePair6 = false;
+var haveOne = false;
+var haveFive = false;
+ 
+    var diceCount = [0, 0, 0, 0, 0, 0];
+
+    // let score = score1 + score2 + score3 + score4 + score5 + score6 + triple1 + triple2 + triple3 + triple4 + triple5 + triple6 + straight + all6 + zonk;
 function newResults() {
-  var diceCount = [0, 0, 0, 0, 0, 0];
-
-  // let score = score1 + score2 + score3 + score4 + score5 + score6 + triple1 + triple2 + triple3 + triple4 + triple5 + triple6 + straight + all6 + zonk;
-
   // Keep count of each number in the kept dice to help determine score.
   for (i = 0; i < diceCount.length; i++) {
     switch (newArray[i]) {
@@ -607,24 +624,7 @@ function newResults() {
   }
   console.log(diceCount + " " + "diceCount");
 
-  var six = false,
-    straight = false,
-    threeKind = false,
-    tripleOne = false,
-    tripleTwo = false,
-    tripleThree = false,
-    tripleFour = false,
-    tripleFive = false,
-    tripleSix = false,
-    triplePair = false,
-    triplePair1 = false,
-    triplePair2 = false,
-    triplePair3 = false,
-    triplePair4 = false,
-    triplePair5 = false,
-    triplePair6 = false,
-    haveOne = false,
-    haveFive = false;
+ 
 
   for (i = 0; i < diceCount.length; i++) {
     if (diceCount[i] == 6) {
@@ -647,7 +647,7 @@ function newResults() {
       //if one three of a kind is true, check for which number is a three of a kind.
       if (diceCount[0] >= 3 && six === false) {
         tripleOne = true;
-        haveOne = false;
+        // haveOne = false;
       } else if (diceCount[5] >= 3 && six === false) {
         tripleSix = true;
       } else if (diceCount[4] == 3) {
@@ -691,6 +691,12 @@ function newResults() {
 
     //if the above are false, check for 1's and 5's
   }
+  
+
+
+
+
+
 
   if (diceCount[0] > 3 && triple1 === true) {
     haveOne = true;
@@ -737,4 +743,5 @@ function newResults() {
   } else if (triple5 === false && diceCount[4] > 0) {
     score5 = diceCount[4] * 50;
   }
+  
 }
